@@ -4,7 +4,8 @@ namespace MDPA_MyWeather.Model
     using System;
     using Windows.Web.Http;
     using Windows.Data.Json;
-
+    using System.Collections.Generic;
+    using System.Threading.Tasks;
 
     class WeatherService
     {
@@ -13,7 +14,7 @@ namespace MDPA_MyWeather.Model
         /* api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon} */
         private const string CURRENT_WEATHER = "weather?";
         /* api.openweathermap.org/data/2.5/forecast/daily?lat={lat}&lon={lon}&cnt={cnt} */
-        private const string FORECAST = "forecast/daily?q=";
+        private const string FORECAST = "forecast/daily?";
 
         private HttpClient client;
 
@@ -22,7 +23,7 @@ namespace MDPA_MyWeather.Model
             client = new HttpClient();
         }
 
-        public async System.Threading.Tasks.Task<Weather> getCurrentWeather(double latitude, double longitude)
+        public async Task<Weather> getCurrentWeather(double latitude, double longitude)
         {
             Weather current = new Weather();
 
@@ -40,6 +41,10 @@ namespace MDPA_MyWeather.Model
             string content = await message.Content.ReadAsStringAsync();
 
             var root = JsonValue.Parse(content).GetObject();
+
+            current.CityName = root.GetNamedValue("name").GetString();
+
+            current.Date = (long)root.GetNamedValue("dt").GetNumber();
 
             var weather = root.GetNamedValue("weather").GetArray().GetObjectAt(0);
             current.WeatherId = (int)weather.GetNamedNumber("id");
@@ -62,6 +67,60 @@ namespace MDPA_MyWeather.Model
             current.Icon = "ms-appx://MDPA_MyWeather/Assets/WeatherIcons/" + imgName + ".png";
 
             return current;
+        }
+
+        public async Task<List<Weather>> getForecastWeather(double latitude, double longitude)
+        {
+            List<Weather> forecast = new List<Weather>();
+
+            String uri = URL_BASE + FORECAST + "lat=" + latitude + "&lon=" + longitude + "&cnt=7" + "&" + API_KEY + "&units=metric";
+            Uri myUri = new Uri(uri);
+            HttpResponseMessage message = await client.GetAsync(myUri);
+
+            if (message.StatusCode != HttpStatusCode.Ok)
+            {
+                return null;
+            }
+
+            string content = await message.Content.ReadAsStringAsync();
+
+            var root = JsonValue.Parse(content).GetObject();
+
+            var cityName = root.GetNamedObject("city").GetNamedString("name");
+
+            var list = root.GetNamedArray("list");
+            foreach (var day in list)
+            {
+                Weather weather = new Weather();
+
+                weather.CityName = cityName;
+                weather.Date = (long)day.GetObject().GetNamedNumber("dt");
+
+                var temp = day.GetObject().GetNamedObject("temp");
+                weather.Temp = temp.GetNamedNumber("day");
+                weather.TempMax = temp.GetNamedNumber("max");
+                weather.TempMin = temp.GetNamedNumber("min");
+
+                weather.Pressure = (int)day.GetObject().GetNamedNumber("pressure");
+                weather.Humidity = (int)day.GetObject().GetNamedNumber("humidity");
+
+                var weatherTag = day.GetObject().GetNamedValue("weather").GetArray().GetObjectAt(0);
+
+                weather.WeatherId = (int)weatherTag.GetNamedNumber("id");
+                string imgName = convertWeatherId(weather.WeatherId);
+                weather.Icon = "ms-appx://MDPA_MyWeather/Assets/WeatherIcons/" + imgName + ".png";
+
+                weather.WeatherDescription = weatherTag.GetNamedString("description");
+
+                weather.WindSpeed = (int)day.GetObject().GetNamedNumber("speed");
+
+                weather.Cloudiness = (int)day.GetObject().GetNamedNumber("clouds");
+                
+                forecast.Add(weather);
+            }
+
+
+            return forecast;
         }
 
         public string convertWeatherId(int id)

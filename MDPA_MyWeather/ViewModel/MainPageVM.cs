@@ -2,6 +2,7 @@
 using MDPA_MyWeather.Model;
 using MDPA_MyWeather.ViewModel.Base;
 using System;
+using System.Collections.Generic;
 using System.Windows.Input;
 using Windows.UI.Xaml.Media.Imaging;
 
@@ -35,6 +36,17 @@ namespace MDPA_MyWeather.ViewModel
             }
         }
 
+        private List<Weather> forecastWeather;
+        public List<Weather> ForecastWeather
+        {
+            get { return forecastWeather; }
+            set
+            {
+                forecastWeather = value;
+                RaisePropertyChanged("ForecastWeather");
+            }
+        }
+
         private DelegateCommand getWeather;
         public ICommand GetWeather
         {
@@ -47,7 +59,7 @@ namespace MDPA_MyWeather.ViewModel
         {
             this.weatherService = new WeatherService();
 
-            setCurrentWeather();
+            setWeather();
 
             this.CurrentDate = DateTime.Now.ToString("dddd dd MMMM yyyy");
             this.CurrentLocation = "Barcelona";
@@ -59,9 +71,11 @@ namespace MDPA_MyWeather.ViewModel
 
         }
 
-        private async void setCurrentWeather()
+        private async void setWeather()
         {
             this.CurrentWeather = await weatherService.getCurrentWeather(41.390205, 2.154007);
+            this.ForecastWeather = await weatherService.getForecastWeather(41.390205, 2.154007);
         }
+
     }
 }

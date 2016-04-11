@@ -64,6 +64,19 @@ namespace MDPA_MyWeather.Model
             get { return icon; }
             set { icon = value; }
         }
+        private string cityName;
+        public string CityName
+        {
+            get { return cityName; }
+            set { cityName = value; }
+        }
+        private long date;
+        public long Date
+        {
+            get { return date; }
+            set { date = value; }
+        }
+
 
         public Weather()
         {

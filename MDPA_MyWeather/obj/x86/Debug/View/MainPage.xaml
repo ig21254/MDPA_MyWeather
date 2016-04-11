@@ -70,8 +70,8 @@
             <StackPanel x:ConnectionId='4' x:Name="Information" Orientation="Vertical" Width="Auto" Height="80" Margin="0,24,0,24"  
                         RelativePanel.Below="Logo" RelativePanel.AlignLeftWith="Logo"
                         HorizontalAlignment="Stretch" >
-                <TextBlock x:ConnectionId='18' x:Name="Today" Text="{Binding CurrentDate}" FontSize="20" VerticalAlignment="Center" Height="35"/>
-                <TextBlock x:ConnectionId='19' x:Name="Location" Text="{Binding CurrentLocation}" FontSize="20" VerticalAlignment="Center" Height="35"/>
+                <TextBlock x:ConnectionId='19' x:Name="Today" Text="{Binding CurrentDate}" FontSize="20" VerticalAlignment="Center" Height="35"/>
+                <TextBlock x:ConnectionId='20' x:Name="Location" Text="{Binding CurrentLocation}" FontSize="20" VerticalAlignment="Center" Height="35"/>
             </StackPanel>
             
 
@@ -81,60 +81,197 @@
                            HorizontalAlignment="Stretch"
                            Background="#B4C5CC"
                            Padding="10">
-                <TextBlock x:ConnectionId='7' x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
-                <Image x:ConnectionId='8' x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding CurrentWeather.Icon}" 
+                <TextBlock x:ConnectionId='8' x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
+                <Image x:ConnectionId='9' x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding CurrentWeather.Icon}" 
                        RelativePanel.Below="TodayWeatherTitle" RelativePanel.AlignLeftWithPanel="True"/>
                 
-                <TextBlock x:ConnectionId='9' x:Name="Temperature" FontSize="25" Margin="10,0"
+                <TextBlock x:ConnectionId='10' x:Name="Temperature" FontSize="25" Margin="10,0"
                            RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">
                     <Run Text="{Binding CurrentWeather.Temp}"/>
                     <Run Text="º C"/>
                 </TextBlock>
-                <TextBlock x:ConnectionId='10' x:Name="TempMax" Foreground="DarkRed"
+                <TextBlock x:ConnectionId='11' x:Name="TempMax" Foreground="DarkRed"
                            RelativePanel.RightOf="Temperature" RelativePanel.AlignTopWith="WeatherIcon">
                     <Run Text="Max: " />
                     <Run Text="{Binding CurrentWeather.TempMax}"/>
                     <Run Text="º C"/>
                 </TextBlock>
-                <TextBlock x:ConnectionId='11' x:Name="TempMin" Foreground="DarkBlue"
+                <TextBlock x:ConnectionId='12' x:Name="TempMin" Foreground="DarkBlue"
                            RelativePanel.RightOf="Temperature" RelativePanel.AlignBottomWith="WeatherIcon" >
                     <Run Text="Min: " />
                     <Run Text="{Binding CurrentWeather.TempMin}"/>
                     <Run Text="º C"/>
                 </TextBlock>
 
-                <StackPanel x:ConnectionId='12' x:Name="WeatherMisc" Margin="0,10,0,0"
+                <StackPanel x:ConnectionId='13' x:Name="WeatherMisc" Margin="0,10,0,0"
                             RelativePanel.Below="TempMin" RelativePanel.AlignLeftWith="TempMin">
-                    <TextBlock x:ConnectionId='14' x:Name="Wind" >
+                    <TextBlock x:ConnectionId='15' x:Name="Wind" >
                         <Run Text="Wind speed: " />
                         <Run Text="{Binding CurrentWeather.WindSpeed}" />
                         <Run Text=" m/s" />
                     </TextBlock>
-                    <TextBlock x:ConnectionId='15' x:Name="Pressure" >
+                    <TextBlock x:ConnectionId='16' x:Name="Pressure" >
                         <Run Text="Pressure: " />
                         <Run Text="{Binding CurrentWeather.Pressure}" />
                         <Run Text=" hpa" />
                     </TextBlock>
-                    <TextBlock x:ConnectionId='16' x:Name="Humidity" >
+                    <TextBlock x:ConnectionId='17' x:Name="Humidity" >
                         <Run Text="Humidity: " />
                         <Run Text="{Binding CurrentWeather.Humidity}" />
                         <Run Text=" %" />
                     </TextBlock>
-                    <TextBlock x:ConnectionId='17' x:Name="Cloudiness" >
+                    <TextBlock x:ConnectionId='18' x:Name="Cloudiness" >
                         <Run Text="Cloudiness: " />
                         <Run Text="{Binding CurrentWeather.Cloudiness}" />
                         <Run Text=" %" />
                     </TextBlock>
                 </StackPanel>
 
-                <TextBlock x:ConnectionId='13' x:Name="WeatherDescription" Margin="0,10,0,0"
+                <TextBlock x:ConnectionId='14' x:Name="WeatherDescription" Margin="0,10,0,0"
                            Text="{Binding CurrentWeather.WeatherDescription}"
                            RelativePanel.AlignLeftWith="WeatherIcon" RelativePanel.AlignTopWith="WeatherMisc"/>
 
             </RelativePanel>
+
+
+
+            <ScrollViewer x:ConnectionId='6' x:Name="ForecastPanel" VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto"
+                      HorizontalAlignment="Stretch" Margin="0,10"
+                      RelativePanel.Below="TodayWeatherPanel"
+                      RelativePanel.AlignLeftWith="TodayWeatherPanel" >
+                <ItemsControl ItemsSource="{Binding ForecastWeather}" Grid.Column="0">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <StackPanel Orientation="Vertical"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <RelativePanel  HorizontalAlignment="Stretch" Background="#B4C5CC"
+                                    Padding="10,10,20,10" Margin="0,10">
+                                <TextBlock x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
+                                <Image x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding Icon}" 
+                                        RelativePanel.Below="TodayWeatherTitle" RelativePanel.AlignLeftWithPanel="True"/>
+
+                                <TextBlock x:Name="Temperature" FontSize="25" Margin="10,0"
+                                        RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">
+                                    <Run Text="{Binding Temp}"/>
+                                    <Run Text="º C"/>
+                                </TextBlock>
+                                <TextBlock x:Name="TempMax" Foreground="DarkRed"
+                                        RelativePanel.RightOf="Temperature" RelativePanel.AlignTopWith="WeatherIcon">
+                                    <Run Text="Max: " />
+                                    <Run Text="{Binding TempMax}"/>
+                                    <Run Text="º C"/>
+                                </TextBlock>
+                                <TextBlock x:Name="TempMin" Foreground="DarkBlue"
+                                        RelativePanel.RightOf="Temperature" RelativePanel.AlignBottomWith="WeatherIcon" >
+                                    <Run Text="Min: " />
+                                    <Run Text="{Binding TempMin}"/>
+                                    <Run Text="º C"/>
+                                </TextBlock>
+
+                                <StackPanel x:Name="WeatherMisc" Margin="0,10,0,0"
+                                        RelativePanel.Below="TempMin" RelativePanel.AlignLeftWith="TempMin">
+                                    <TextBlock x:Name="Wind" >
+                                        <Run Text="Wind speed: " />
+                                        <Run Text="{Binding WindSpeed}" />
+                                        <Run Text=" m/s" />
+                                    </TextBlock>
+                                    <TextBlock x:Name="Pressure" >
+                                        <Run Text="Pressure: " />
+                                        <Run Text="{Binding Pressure}" />
+                                        <Run Text=" hpa" />
+                                    </TextBlock>
+                                    <TextBlock x:Name="Humidity" >
+                                        <Run Text="Humidity: " />
+                                        <Run Text="{Binding Humidity}" />
+                                        <Run Text=" %" />
+                                    </TextBlock>
+                                    <TextBlock x:Name="Cloudiness" >
+                                        <Run Text="Cloudiness: " />
+                                        <Run Text="{Binding Cloudiness}" />
+                                        <Run Text=" %" />
+                                    </TextBlock>
+                                </StackPanel>
+
+                                <TextBlock x:Name="WeatherDescription" Margin="0,10,0,0"
+                                        Text="{Binding WeatherDescription}"
+                                        RelativePanel.AlignLeftWith="WeatherIcon" RelativePanel.AlignTopWith="WeatherMisc"/>
+
+                            </RelativePanel>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
             
-            <Button x:ConnectionId='6' x:Name="BtnLogin" Content="inicia sesión" Margin="0,24,0,0" Background="White" BorderBrush="Green" Foreground="Green"
-                    RelativePanel.Below="TodayWeatherPanel" RelativePanel.AlignHorizontalCenterWithPanel="True"
+
+            <!--StackPanel x:Name="ForecastPanel" ItemsSource="{Binding ForecastWeather}" 
+                      RelativePanel.Below="TodayWeatherPanel"
+                      RelativePanel.AlignLeftWith="TodayWeatherPanel">
+                <StackPanel.ItemTemplate>
+                    <DataTemplate>
+                        <RelativePanel  
+                            HorizontalAlignment="Stretch"
+                            Background="#B4C5CC"
+                            Padding="10" Margin="0,10">
+                            <TextBlock x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
+                            <Image x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding Icon}" 
+                                        RelativePanel.Below="TodayWeatherTitle" RelativePanel.AlignLeftWithPanel="True"/>
+
+                            <TextBlock x:Name="Temperature" FontSize="25" Margin="10,0"
+                                        RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">
+                                <Run Text="{Binding Temp}"/>
+                                <Run Text="º C"/>
+                            </TextBlock>
+                            <TextBlock x:Name="TempMax" Foreground="DarkRed"
+                                        RelativePanel.RightOf="Temperature" RelativePanel.AlignTopWith="WeatherIcon">
+                                <Run Text="Max: " />
+                                <Run Text="{Binding TempMax}"/>
+                                <Run Text="º C"/>
+                            </TextBlock>
+                            <TextBlock x:Name="TempMin" Foreground="DarkBlue"
+                                        RelativePanel.RightOf="Temperature" RelativePanel.AlignBottomWith="WeatherIcon" >
+                                <Run Text="Min: " />
+                                <Run Text="{Binding TempMin}"/>
+                                <Run Text="º C"/>   
+                            </TextBlock>
+
+                            <StackPanel x:Name="WeatherMisc" Margin="0,10,0,0"
+                                        RelativePanel.Below="TempMin" RelativePanel.AlignLeftWith="TempMin">
+                                <TextBlock x:Name="Wind" >
+                                    <Run Text="Wind speed: " />
+                                    <Run Text="{Binding WindSpeed}" />
+                                    <Run Text=" m/s" /> 
+                                </TextBlock>
+                                <TextBlock x:Name="Pressure" >
+                                    <Run Text="Pressure: " />
+                                    <Run Text="{Binding Pressure}" />
+                                    <Run Text=" hpa" />
+                                </TextBlock>
+                                <TextBlock x:Name="Humidity" >
+                                    <Run Text="Humidity: " />
+                                    <Run Text="{Binding Humidity}" />
+                                    <Run Text=" %" />
+                                </TextBlock>
+                                <TextBlock x:Name="Cloudiness" >
+                                    <Run Text="Cloudiness: " />
+                                    <Run Text="{Binding Cloudiness}" />
+                                    <Run Text=" %" />
+                                </TextBlock>
+                            </StackPanel>
+
+                            <TextBlock x:Name="WeatherDescription" Margin="0,10,0,0"
+                                        Text="{Binding WeatherDescription}"
+                                        RelativePanel.AlignLeftWith="WeatherIcon" RelativePanel.AlignTopWith="WeatherMisc"/>
+
+                        </RelativePanel>
+                    </DataTemplate>
+                </StackPanel.ItemTemplate>
+            </-->
+            
+            <Button x:ConnectionId='7' x:Name="BtnLogin" Content="inicia sesión" Margin="0,24,0,0" Background="White" BorderBrush="Green" Foreground="Green"
+                    RelativePanel.Below="ForecastPanel" RelativePanel.AlignHorizontalCenterWithPanel="True"
                     Command="{Binding GetWeather}"/>
         </RelativePanel>
     </Grid>

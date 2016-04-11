@@ -132,27 +132,35 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
 
         private void InitTypeTables()
         {
-            _typeNameTable = new string[9];
+            _typeNameTable = new string[13];
             _typeNameTable[0] = "MDPA_MyWeather.ViewModel.MainPageVM";
             _typeNameTable[1] = "MDPA_MyWeather.ViewModel.Base.ViewModelBase";
             _typeNameTable[2] = "Object";
             _typeNameTable[3] = "String";
             _typeNameTable[4] = "MDPA_MyWeather.Model.Weather";
-            _typeNameTable[5] = "System.Windows.Input.ICommand";
-            _typeNameTable[6] = "MDPA_MyWeather.MainPage";
-            _typeNameTable[7] = "Windows.UI.Xaml.Controls.Page";
-            _typeNameTable[8] = "Windows.UI.Xaml.Controls.UserControl";
+            _typeNameTable[5] = "System.Collections.Generic.List`1<MDPA_MyWeather.Model.Weather>";
+            _typeNameTable[6] = "Int32";
+            _typeNameTable[7] = "Double";
+            _typeNameTable[8] = "Int64";
+            _typeNameTable[9] = "System.Windows.Input.ICommand";
+            _typeNameTable[10] = "MDPA_MyWeather.MainPage";
+            _typeNameTable[11] = "Windows.UI.Xaml.Controls.Page";
+            _typeNameTable[12] = "Windows.UI.Xaml.Controls.UserControl";
 
-            _typeTable = new global::System.Type[9];
+            _typeTable = new global::System.Type[13];
             _typeTable[0] = typeof(global::MDPA_MyWeather.ViewModel.MainPageVM);
             _typeTable[1] = typeof(global::MDPA_MyWeather.ViewModel.Base.ViewModelBase);
             _typeTable[2] = typeof(global::System.Object);
             _typeTable[3] = typeof(global::System.String);
             _typeTable[4] = typeof(global::MDPA_MyWeather.Model.Weather);
-            _typeTable[5] = typeof(global::System.Windows.Input.ICommand);
-            _typeTable[6] = typeof(global::MDPA_MyWeather.MainPage);
-            _typeTable[7] = typeof(global::Windows.UI.Xaml.Controls.Page);
-            _typeTable[8] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
+            _typeTable[5] = typeof(global::System.Collections.Generic.List<global::MDPA_MyWeather.Model.Weather>);
+            _typeTable[6] = typeof(global::System.Int32);
+            _typeTable[7] = typeof(global::System.Double);
+            _typeTable[8] = typeof(global::System.Int64);
+            _typeTable[9] = typeof(global::System.Windows.Input.ICommand);
+            _typeTable[10] = typeof(global::MDPA_MyWeather.MainPage);
+            _typeTable[11] = typeof(global::Windows.UI.Xaml.Controls.Page);
+            _typeTable[12] = typeof(global::Windows.UI.Xaml.Controls.UserControl);
         }
 
         private int LookupTypeIndexByName(string typeName)
@@ -190,7 +198,14 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
         private object Activate_0_MainPageVM() { return new global::MDPA_MyWeather.ViewModel.MainPageVM(); }
         private object Activate_1_ViewModelBase() { return new global::MDPA_MyWeather.ViewModel.Base.ViewModelBase(); }
         private object Activate_4_Weather() { return new global::MDPA_MyWeather.Model.Weather(); }
-        private object Activate_6_MainPage() { return new global::MDPA_MyWeather.MainPage(); }
+        private object Activate_5_List() { return new global::System.Collections.Generic.List<global::MDPA_MyWeather.Model.Weather>(); }
+        private object Activate_10_MainPage() { return new global::MDPA_MyWeather.MainPage(); }
+        private void VectorAdd_5_List(object instance, object item)
+        {
+            var collection = (global::System.Collections.Generic.ICollection<global::MDPA_MyWeather.Model.Weather>)instance;
+            var newItem = (global::MDPA_MyWeather.Model.Weather)item;
+            collection.Add(newItem);
+        }
 
         private global::Windows.UI.Xaml.Markup.IXamlType CreateXamlType(int typeIndex)
         {
@@ -208,6 +223,7 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 userType.AddMemberName("CurrentDate");
                 userType.AddMemberName("CurrentLocation");
                 userType.AddMemberName("CurrentWeather");
+                userType.AddMemberName("ForecastWeather");
                 userType.AddMemberName("GetWeather");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -230,29 +246,60 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
 
             case 4:   //  MDPA_MyWeather.Model.Weather
                 userType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
-                userType.SetIsReturnTypeStub();
+                userType.Activator = Activate_4_Weather;
+                userType.AddMemberName("WeatherId");
+                userType.AddMemberName("WeatherDescription");
+                userType.AddMemberName("Temp");
+                userType.AddMemberName("TempMin");
+                userType.AddMemberName("TempMax");
+                userType.AddMemberName("Pressure");
+                userType.AddMemberName("Humidity");
+                userType.AddMemberName("WindSpeed");
+                userType.AddMemberName("Cloudiness");
+                userType.AddMemberName("Icon");
+                userType.AddMemberName("CityName");
+                userType.AddMemberName("Date");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 5:   //  System.Windows.Input.ICommand
+            case 5:   //  System.Collections.Generic.List`1<MDPA_MyWeather.Model.Weather>
+                userType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Object"));
+                userType.CollectionAdd = VectorAdd_5_List;
+                userType.SetIsReturnTypeStub();
+                xamlType = userType;
+                break;
+
+            case 6:   //  Int32
+                xamlType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 7:   //  Double
+                xamlType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 8:   //  Int64
+                xamlType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
+                break;
+
+            case 9:   //  System.Windows.Input.ICommand
                 userType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType(this, typeName, type, null);
                 userType.SetIsReturnTypeStub();
                 xamlType = userType;
                 break;
 
-            case 6:   //  MDPA_MyWeather.MainPage
+            case 10:   //  MDPA_MyWeather.MainPage
                 userType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType(this, typeName, type, GetXamlTypeByName("Windows.UI.Xaml.Controls.Page"));
-                userType.Activator = Activate_6_MainPage;
+                userType.Activator = Activate_10_MainPage;
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
 
-            case 7:   //  Windows.UI.Xaml.Controls.Page
+            case 11:   //  Windows.UI.Xaml.Controls.Page
                 xamlType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
 
-            case 8:   //  Windows.UI.Xaml.Controls.UserControl
+            case 12:   //  Windows.UI.Xaml.Controls.UserControl
                 xamlType = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlSystemBaseType(typeName, type);
                 break;
             }
@@ -290,7 +337,137 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
             var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
             that.CurrentWeather = (global::MDPA_MyWeather.Model.Weather)Value;
         }
-        private object get_3_MainPageVM_GetWeather(object instance)
+        private object get_3_MainPageVM_ForecastWeather(object instance)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            return that.ForecastWeather;
+        }
+        private void set_3_MainPageVM_ForecastWeather(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            that.ForecastWeather = (global::System.Collections.Generic.List<global::MDPA_MyWeather.Model.Weather>)Value;
+        }
+        private object get_4_Weather_WeatherId(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.WeatherId;
+        }
+        private void set_4_Weather_WeatherId(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.WeatherId = (global::System.Int32)Value;
+        }
+        private object get_5_Weather_WeatherDescription(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.WeatherDescription;
+        }
+        private void set_5_Weather_WeatherDescription(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.WeatherDescription = (global::System.String)Value;
+        }
+        private object get_6_Weather_Temp(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Temp;
+        }
+        private void set_6_Weather_Temp(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Temp = (global::System.Double)Value;
+        }
+        private object get_7_Weather_TempMin(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.TempMin;
+        }
+        private void set_7_Weather_TempMin(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.TempMin = (global::System.Double)Value;
+        }
+        private object get_8_Weather_TempMax(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.TempMax;
+        }
+        private void set_8_Weather_TempMax(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.TempMax = (global::System.Double)Value;
+        }
+        private object get_9_Weather_Pressure(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Pressure;
+        }
+        private void set_9_Weather_Pressure(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Pressure = (global::System.Int32)Value;
+        }
+        private object get_10_Weather_Humidity(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Humidity;
+        }
+        private void set_10_Weather_Humidity(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Humidity = (global::System.Int32)Value;
+        }
+        private object get_11_Weather_WindSpeed(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.WindSpeed;
+        }
+        private void set_11_Weather_WindSpeed(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.WindSpeed = (global::System.Double)Value;
+        }
+        private object get_12_Weather_Cloudiness(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Cloudiness;
+        }
+        private void set_12_Weather_Cloudiness(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Cloudiness = (global::System.Double)Value;
+        }
+        private object get_13_Weather_Icon(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Icon;
+        }
+        private void set_13_Weather_Icon(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Icon = (global::System.String)Value;
+        }
+        private object get_14_Weather_CityName(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.CityName;
+        }
+        private void set_14_Weather_CityName(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.CityName = (global::System.String)Value;
+        }
+        private object get_15_Weather_Date(object instance)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            return that.Date;
+        }
+        private void set_15_Weather_Date(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.Model.Weather)instance;
+            that.Date = (global::System.Int64)Value;
+        }
+        private object get_16_MainPageVM_GetWeather(object instance)
         {
             var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
             return that.GetWeather;
@@ -321,10 +498,88 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 xamlMember.Getter = get_2_MainPageVM_CurrentWeather;
                 xamlMember.Setter = set_2_MainPageVM_CurrentWeather;
                 break;
+            case "MDPA_MyWeather.ViewModel.MainPageVM.ForecastWeather":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "ForecastWeather", "System.Collections.Generic.List`1<MDPA_MyWeather.Model.Weather>");
+                xamlMember.Getter = get_3_MainPageVM_ForecastWeather;
+                xamlMember.Setter = set_3_MainPageVM_ForecastWeather;
+                break;
+            case "MDPA_MyWeather.Model.Weather.WeatherId":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "WeatherId", "Int32");
+                xamlMember.Getter = get_4_Weather_WeatherId;
+                xamlMember.Setter = set_4_Weather_WeatherId;
+                break;
+            case "MDPA_MyWeather.Model.Weather.WeatherDescription":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "WeatherDescription", "String");
+                xamlMember.Getter = get_5_Weather_WeatherDescription;
+                xamlMember.Setter = set_5_Weather_WeatherDescription;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Temp":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Temp", "Double");
+                xamlMember.Getter = get_6_Weather_Temp;
+                xamlMember.Setter = set_6_Weather_Temp;
+                break;
+            case "MDPA_MyWeather.Model.Weather.TempMin":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMin", "Double");
+                xamlMember.Getter = get_7_Weather_TempMin;
+                xamlMember.Setter = set_7_Weather_TempMin;
+                break;
+            case "MDPA_MyWeather.Model.Weather.TempMax":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMax", "Double");
+                xamlMember.Getter = get_8_Weather_TempMax;
+                xamlMember.Setter = set_8_Weather_TempMax;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Pressure":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Pressure", "Int32");
+                xamlMember.Getter = get_9_Weather_Pressure;
+                xamlMember.Setter = set_9_Weather_Pressure;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Humidity":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Humidity", "Int32");
+                xamlMember.Getter = get_10_Weather_Humidity;
+                xamlMember.Setter = set_10_Weather_Humidity;
+                break;
+            case "MDPA_MyWeather.Model.Weather.WindSpeed":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "WindSpeed", "Double");
+                xamlMember.Getter = get_11_Weather_WindSpeed;
+                xamlMember.Setter = set_11_Weather_WindSpeed;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Cloudiness":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Cloudiness", "Double");
+                xamlMember.Getter = get_12_Weather_Cloudiness;
+                xamlMember.Setter = set_12_Weather_Cloudiness;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Icon":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Icon", "String");
+                xamlMember.Getter = get_13_Weather_Icon;
+                xamlMember.Setter = set_13_Weather_Icon;
+                break;
+            case "MDPA_MyWeather.Model.Weather.CityName":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "CityName", "String");
+                xamlMember.Getter = get_14_Weather_CityName;
+                xamlMember.Setter = set_14_Weather_CityName;
+                break;
+            case "MDPA_MyWeather.Model.Weather.Date":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Date", "Int64");
+                xamlMember.Getter = get_15_Weather_Date;
+                xamlMember.Setter = set_15_Weather_Date;
+                break;
             case "MDPA_MyWeather.ViewModel.MainPageVM.GetWeather":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
                 xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "GetWeather", "System.Windows.Input.ICommand");
-                xamlMember.Getter = get_3_MainPageVM_GetWeather;
+                xamlMember.Getter = get_16_MainPageVM_GetWeather;
                 xamlMember.SetIsReadOnly();
                 break;
             }
