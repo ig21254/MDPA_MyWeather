@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-10T17:05:49.031</Modified>
+      <Modified>2016-04-11T10:10:17.676</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\MDPA_MyWeather.exe">
       <PackagePath>entrypoint\MDPA_MyWeather.exe</PackagePath>
-      <Modified>2016-04-10T17:05:48.679</Modified>
+      <Modified>2016-04-11T10:10:16.406</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -458,13 +458,37 @@
       <PackagePath>ApplicationInsights.config</PackagePath>
       <Modified>2016-04-03T18:17:12.978</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\weather_logo.jpg">
-      <PackagePath>Assets\weather_logo.jpg</PackagePath>
-      <Modified>2016-04-09T18:23:19.646</Modified>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Atmosphere.png">
+      <PackagePath>Assets\WeatherIcons\Atmosphere.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.782</Modified>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
-      <Modified>2016-04-03T18:16:55.538</Modified>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Clear.png">
+      <PackagePath>Assets\WeatherIcons\Clear.png</PackagePath>
+      <Modified>2016-04-10T19:48:20.135</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Clouds.png">
+      <PackagePath>Assets\WeatherIcons\Clouds.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.822</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Drizzle.png">
+      <PackagePath>Assets\WeatherIcons\Drizzle.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.838</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Mostly Cloudy.png">
+      <PackagePath>Assets\WeatherIcons\Mostly Cloudy.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.852</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Rain.png">
+      <PackagePath>Assets\WeatherIcons\Rain.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.863</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Snow.png">
+      <PackagePath>Assets\WeatherIcons\Snow.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.873</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Thunderstorm.png">
+      <PackagePath>Assets\WeatherIcons\Thunderstorm.png</PackagePath>
+      <Modified>2016-04-10T17:38:03.886</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -500,9 +524,17 @@
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
       <Modified>2015-08-27T00:38:34.000</Modified>
     </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\weather_logo.jpg">
+      <PackagePath>Assets\weather_logo.jpg</PackagePath>
+      <Modified>2016-04-09T18:23:19.646</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
+      <Modified>2016-04-03T18:16:55.538</Modified>
+    </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\MDPA_MyWeather.xr.xml">
       <PackagePath>MDPA_MyWeather.xr.xml</PackagePath>
-      <Modified>2016-04-09T20:12:50.777</Modified>
+      <Modified>2016-04-11T10:10:16.092</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -510,11 +542,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-09T20:12:51.925</Modified>
+      <Modified>2016-04-11T10:10:17.337</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\Core\MDPA_MyWeather.exe">
       <PackagePath>MDPA_MyWeather.exe</PackagePath>
-      <Modified>2016-04-10T17:05:49.025</Modified>
+      <Modified>2016-04-11T10:10:17.667</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

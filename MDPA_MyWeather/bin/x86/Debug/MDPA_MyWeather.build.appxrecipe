@@ -342,11 +342,29 @@
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\ApplicationInsights.config">
       <PackagePath>ApplicationInsights.config</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\weather_logo.jpg">
-      <PackagePath>Assets\weather_logo.jpg</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Atmosphere.png">
+      <PackagePath>Assets\WeatherIcons\Atmosphere.png</PackagePath>
     </AppxPackagedFile>
-    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Properties\Default.rd.xml">
-      <PackagePath>Properties\Default.rd.xml</PackagePath>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Clear.png">
+      <PackagePath>Assets\WeatherIcons\Clear.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Clouds.png">
+      <PackagePath>Assets\WeatherIcons\Clouds.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Drizzle.png">
+      <PackagePath>Assets\WeatherIcons\Drizzle.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Mostly Cloudy.png">
+      <PackagePath>Assets\WeatherIcons\Mostly Cloudy.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Rain.png">
+      <PackagePath>Assets\WeatherIcons\Rain.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Snow.png">
+      <PackagePath>Assets\WeatherIcons\Snow.png</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\WeatherIcons\Thunderstorm.png">
+      <PackagePath>Assets\WeatherIcons\Thunderstorm.png</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\LockScreenLogo.scale-200.png">
       <PackagePath>Assets\LockScreenLogo.scale-200.png</PackagePath>
@@ -374,6 +392,12 @@
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\Wide310x150Logo.scale-200.png">
       <PackagePath>Assets\Wide310x150Logo.scale-200.png</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Assets\weather_logo.jpg">
+      <PackagePath>Assets\weather_logo.jpg</PackagePath>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\Properties\Default.rd.xml">
+      <PackagePath>Properties\Default.rd.xml</PackagePath>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\MDPA_MyWeather.xr.xml">
       <PackagePath>MDPA_MyWeather.xr.xml</PackagePath>

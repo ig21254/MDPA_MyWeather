@@ -116,6 +116,14 @@
     <None Include="MDPA_MyWeather_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\WeatherIcons\Atmosphere.png" />
+    <Content Include="Assets\WeatherIcons\Clear.png" />
+    <Content Include="Assets\WeatherIcons\Clouds.png" />
+    <Content Include="Assets\WeatherIcons\Drizzle.png" />
+    <Content Include="Assets\WeatherIcons\Mostly Cloudy.png" />
+    <Content Include="Assets\WeatherIcons\Rain.png" />
+    <Content Include="Assets\WeatherIcons\Snow.png" />
+    <Content Include="Assets\WeatherIcons\Thunderstorm.png" />
     <Content Include="Assets\weather_logo.jpg" />
     <Content Include="Properties\Default.rd.xml" />
     <Content Include="Assets\LockScreenLogo.scale-200.png" />

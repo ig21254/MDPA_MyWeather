@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿
 namespace MDPA_MyWeather.Model
 {
     class Weather
@@ -17,6 +12,7 @@ namespace MDPA_MyWeather.Model
         private int humidity;
         private double windSpeed;
         private double cloudiness;
+        private string icon;
 
         public int WeatherId
         {
@@ -62,6 +58,11 @@ namespace MDPA_MyWeather.Model
         {
             get { return cloudiness; }
             set { cloudiness = value; }
+        }
+        public string Icon
+        {
+            get { return icon; }
+            set { icon = value; }
         }
 
         public Weather()

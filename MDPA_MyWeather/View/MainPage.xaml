@@ -12,9 +12,9 @@
         <vm:MainPageVM/>
     </Page.DataContext>
 
-    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <Grid Background="#E0E0E0">
 
-        <VisualStateManager.VisualStateGroups>
+        <!--VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptativeGroup">
                 <VisualState x:Name="GreaterThan900">
                     <VisualState.Setters>
@@ -59,15 +59,15 @@
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
-        </VisualStateManager.VisualStateGroups>
+        </-->
 
         <RelativePanel x:Name="MasterPanel" Padding="24,24,24,24">
             <Image x:Name="Logo" Source="/Assets/weather_logo.jpg" Width="50" Height="50" 
                    RelativePanel.AlignLeftWithPanel="True"/>
-            <TextBlock x:Name="Header" Text="My Weather App" FontSize="32" Foreground="Green" Height="50"
+            <TextBlock x:Name="Header" Text="My Weather App" FontSize="32" Foreground="#0255FD" Height="50"
                        Margin="24,0,0,0" RelativePanel.RightOf="Logo"/>
 
-            <StackPanel x:Name="Information" Orientation="Vertical" Width="Auto" Height="80" Margin="0,24,0,0"  
+            <StackPanel x:Name="Information" Orientation="Vertical" Width="Auto" Height="80" Margin="0,24,0,24"  
                         RelativePanel.Below="Logo" RelativePanel.AlignLeftWith="Logo"
                         HorizontalAlignment="Stretch" >
                 <TextBlock x:Name="Today" Text="{Binding CurrentDate}" FontSize="20" VerticalAlignment="Center" Height="35"/>
@@ -75,19 +75,64 @@
             </StackPanel>
             
 
-            <RelativePanel x:Name="TodayWeatherPanel" RelativePanel.AlignVerticalCenterWithPanel="True"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True">
-                <TextBlock x:Name="YourData" Text="o introduce tus datos de usuario" FontSize="32" TextWrapping="Wrap" TextAlignment="Center"
-                           RelativePanel.AlignHorizontalCenterWithPanel="True" Margin="24,0"/>
-                <TextBox x:Name="Email" Header="correo electrónico" HorizontalAlignment="Stretch" Margin="24,0" 
-                         RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                         RelativePanel.Below="YourData" Opacity=".5">
-                </TextBox>
-                <PasswordBox x:Name="Password" Header="contraseña" HorizontalAlignment="Stretch" Margin="24,0" 
-                                RelativePanel.AlignRightWithPanel="True" RelativePanel.AlignLeftWithPanel="True"
-                                RelativePanel.Below="Email" Opacity=".5">
-                </PasswordBox>
+            <RelativePanel x:Name="TodayWeatherPanel" 
+                           RelativePanel.Below="Information"
+                           RelativePanel.AlignLeftWith="Logo"
+                           HorizontalAlignment="Stretch"
+                           Background="#B4C5CC"
+                           Padding="10">
+                <TextBlock x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
+                <Image x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding CurrentWeather.Icon}" 
+                       RelativePanel.Below="TodayWeatherTitle" RelativePanel.AlignLeftWithPanel="True"/>
+                
+                <TextBlock x:Name="Temperature" FontSize="25" Margin="10,0"
+                           RelativePanel.RightOf="WeatherIcon" RelativePanel.AlignVerticalCenterWith="WeatherIcon">
+                    <Run Text="{Binding CurrentWeather.Temp}"/>
+                    <Run Text="º C"/>
+                </TextBlock>
+                <TextBlock x:Name="TempMax" Foreground="DarkRed"
+                           RelativePanel.RightOf="Temperature" RelativePanel.AlignTopWith="WeatherIcon">
+                    <Run Text="Max: " />
+                    <Run Text="{Binding CurrentWeather.TempMax}"/>
+                    <Run Text="º C"/>
+                </TextBlock>
+                <TextBlock x:Name="TempMin" Foreground="DarkBlue"
+                           RelativePanel.RightOf="Temperature" RelativePanel.AlignBottomWith="WeatherIcon" >
+                    <Run Text="Min: " />
+                    <Run Text="{Binding CurrentWeather.TempMin}"/>
+                    <Run Text="º C"/>
+                </TextBlock>
+
+                <StackPanel x:Name="WeatherMisc" Margin="0,10,0,0"
+                            RelativePanel.Below="TempMin" RelativePanel.AlignLeftWith="TempMin">
+                    <TextBlock x:Name="Wind" >
+                        <Run Text="Wind speed: " />
+                        <Run Text="{Binding CurrentWeather.WindSpeed}" />
+                        <Run Text=" m/s" />
+                    </TextBlock>
+                    <TextBlock x:Name="Pressure" >
+                        <Run Text="Pressure: " />
+                        <Run Text="{Binding CurrentWeather.Pressure}" />
+                        <Run Text=" hpa" />
+                    </TextBlock>
+                    <TextBlock x:Name="Humidity" >
+                        <Run Text="Humidity: " />
+                        <Run Text="{Binding CurrentWeather.Humidity}" />
+                        <Run Text=" %" />
+                    </TextBlock>
+                    <TextBlock x:Name="Cloudiness" >
+                        <Run Text="Cloudiness: " />
+                        <Run Text="{Binding CurrentWeather.Cloudiness}" />
+                        <Run Text=" %" />
+                    </TextBlock>
+                </StackPanel>
+
+                <TextBlock x:Name="WeatherDescription" Margin="0,10,0,0"
+                           Text="{Binding CurrentWeather.WeatherDescription}"
+                           RelativePanel.AlignLeftWith="WeatherIcon" RelativePanel.AlignTopWith="WeatherMisc"/>
+
             </RelativePanel>
+            
             <Button x:Name="BtnLogin" Content="inicia sesión" Margin="0,24,0,0" Background="White" BorderBrush="Green" Foreground="Green"
                     RelativePanel.Below="TodayWeatherPanel" RelativePanel.AlignHorizontalCenterWithPanel="True"
                     Command="{Binding GetWeather}"/>

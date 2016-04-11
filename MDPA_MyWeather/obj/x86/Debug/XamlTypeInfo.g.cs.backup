@@ -208,6 +208,7 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 userType.AddMemberName("CurrentDate");
                 userType.AddMemberName("CurrentLocation");
                 userType.AddMemberName("CurrentWeather");
+                userType.AddMemberName("WeatherIcon");
                 userType.AddMemberName("GetWeather");
                 userType.SetIsLocalType();
                 xamlType = userType;
@@ -290,7 +291,17 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
             var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
             that.CurrentWeather = (global::MDPA_MyWeather.Model.Weather)Value;
         }
-        private object get_3_MainPageVM_GetWeather(object instance)
+        private object get_3_MainPageVM_WeatherIcon(object instance)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            return that.WeatherIcon;
+        }
+        private void set_3_MainPageVM_WeatherIcon(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            that.WeatherIcon = (global::System.String)Value;
+        }
+        private object get_4_MainPageVM_GetWeather(object instance)
         {
             var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
             return that.GetWeather;
@@ -321,10 +332,16 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 xamlMember.Getter = get_2_MainPageVM_CurrentWeather;
                 xamlMember.Setter = set_2_MainPageVM_CurrentWeather;
                 break;
+            case "MDPA_MyWeather.ViewModel.MainPageVM.WeatherIcon":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "WeatherIcon", "String");
+                xamlMember.Getter = get_3_MainPageVM_WeatherIcon;
+                xamlMember.Setter = set_3_MainPageVM_WeatherIcon;
+                break;
             case "MDPA_MyWeather.ViewModel.MainPageVM.GetWeather":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
                 xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "GetWeather", "System.Windows.Input.ICommand");
-                xamlMember.Getter = get_3_MainPageVM_GetWeather;
+                xamlMember.Getter = get_4_MainPageVM_GetWeather;
                 xamlMember.SetIsReadOnly();
                 break;
             }

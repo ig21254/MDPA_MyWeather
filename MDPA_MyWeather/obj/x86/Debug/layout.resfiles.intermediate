@@ -7,6 +7,14 @@ Assets\Square44x44Logo.scale-200.png
 Assets\Square44x44Logo.targetsize-24_altform-unplated.png
 Assets\StoreLogo.png
 Assets\weather_logo.jpg
+Assets\WeatherIcons\Atmosphere.png
+Assets\WeatherIcons\Clear.png
+Assets\WeatherIcons\Clouds.png
+Assets\WeatherIcons\Drizzle.png
+Assets\WeatherIcons\Mostly Cloudy.png
+Assets\WeatherIcons\Rain.png
+Assets\WeatherIcons\Snow.png
+Assets\WeatherIcons\Thunderstorm.png
 Assets\Wide310x150Logo.scale-200.png
 MDPA_MyWeather.xr.xml
 Properties\Default.rd.xml
