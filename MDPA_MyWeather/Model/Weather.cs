@@ -1,7 +1,7 @@
 ﻿
 namespace MDPA_MyWeather.Model
 {
-    class Weather
+    public class Weather
     {
         private int weatherId;
         private string weatherDescription;
@@ -13,6 +13,9 @@ namespace MDPA_MyWeather.Model
         private double windSpeed;
         private double cloudiness;
         private string icon;
+        private string cityName;
+        private long date;
+        private string dateText;
 
         public int WeatherId
         {
@@ -64,19 +67,24 @@ namespace MDPA_MyWeather.Model
             get { return icon; }
             set { icon = value; }
         }
-        private string cityName;
+        
         public string CityName
         {
             get { return cityName; }
             set { cityName = value; }
         }
-        private long date;
+        
         public long Date
         {
             get { return date; }
             set { date = value; }
         }
 
+        public string DateText
+        {
+            get { return dateText; }
+            set { dateText = value; }
+        }
 
         public Weather()
         {

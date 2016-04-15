@@ -6,8 +6,9 @@ namespace MDPA_MyWeather.Model
     using Windows.Data.Json;
     using System.Collections.Generic;
     using System.Threading.Tasks;
+    using Services;
 
-    class WeatherService
+    class WeatherServiceImpl : IWeatherService
     {
         private const string API_KEY = "appid=30784d457d092ececdc59b00384ca2df";
         private const string URL_BASE = "http://api.openweathermap.org/data/2.5/";
@@ -18,12 +19,12 @@ namespace MDPA_MyWeather.Model
 
         private HttpClient client;
 
-        public WeatherService()
+        public WeatherServiceImpl()
         {
             client = new HttpClient();
         }
 
-        public async Task<Weather> getCurrentWeather(double latitude, double longitude)
+        public async Task<Weather> GetCurrentWeather(double latitude, double longitude)
         {
             Weather current = new Weather();
 
@@ -69,7 +70,7 @@ namespace MDPA_MyWeather.Model
             return current;
         }
 
-        public async Task<List<Weather>> getForecastWeather(double latitude, double longitude)
+        public async Task<List<Weather>> GetForecastWeather(double latitude, double longitude)
         {
             List<Weather> forecast = new List<Weather>();
 
@@ -115,10 +116,11 @@ namespace MDPA_MyWeather.Model
                 weather.WindSpeed = (int)day.GetObject().GetNamedNumber("speed");
 
                 weather.Cloudiness = (int)day.GetObject().GetNamedNumber("clouds");
+
+                weather.DateText = Utils.FormatFullDateFromTicks(weather.Date);
                 
                 forecast.Add(weather);
             }
-
 
             return forecast;
         }
@@ -148,6 +150,5 @@ namespace MDPA_MyWeather.Model
                     
             }
         }
-
     }
 }

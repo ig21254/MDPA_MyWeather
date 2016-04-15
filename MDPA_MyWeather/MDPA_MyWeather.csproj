@@ -99,8 +99,12 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Services\Impl\GeolocationServiceImpl.cs" />
+    <Compile Include="Model\Services\IGeolocationService.cs" />
+    <Compile Include="Model\Services\IWeatherService.cs" />
+    <Compile Include="Model\Utils.cs" />
     <Compile Include="Model\Weather.cs" />
-    <Compile Include="Model\WeatherService.cs" />
+    <Compile Include="Model\Services\Impl\WeatherServiceImpl.cs" />
     <Compile Include="ViewModel\Base\DelegateCommand.cs" />
     <Compile Include="ViewModel\Base\ViewModelBase.cs" />
     <Compile Include="ViewModel\MainPageVM.cs" />

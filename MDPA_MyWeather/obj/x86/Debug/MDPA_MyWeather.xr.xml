@@ -1,7 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Roots >
   <Roots.PropertyPathNames>
-    <RootPropertyPathName Name="GetWeather" />
     <RootPropertyPathName Name="ForecastWeather" />
     <RootPropertyPathName Name="WeatherDescription" />
     <RootPropertyPathName Name="Cloudiness" />
@@ -12,8 +11,9 @@
     <RootPropertyPathName Name="TempMax" />
     <RootPropertyPathName Name="Temp" />
     <RootPropertyPathName Name="Icon" />
+    <RootPropertyPathName Name="DateText" />
     <RootPropertyPathName Name="CurrentWeather" />
-    <RootPropertyPathName Name="CurrentLocation" />
+    <RootPropertyPathName Name="CityName" />
     <RootPropertyPathName Name="CurrentDate" />
   </Roots.PropertyPathNames>
   <Roots.RootTypes>
@@ -45,8 +45,6 @@
       <RootMethod Name="SetBelow" />
       <RootMethod Name="GetAlignLeftWith" />
       <RootMethod Name="SetAlignLeftWith" />
-      <RootMethod Name="GetAlignHorizontalCenterWithPanel" />
-      <RootMethod Name="SetAlignHorizontalCenterWithPanel" />
       <RootMethod Name="GetAlignVerticalCenterWith" />
       <RootMethod Name="SetAlignVerticalCenterWith" />
       <RootMethod Name="GetAlignTopWith" />
@@ -83,20 +81,12 @@
       <RootProperty Name="Margin" />
       <RootProperty Name="Content" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Controls.Button">
-      <RootProperty Name="Content" />
-      <RootProperty Name="Margin" />
-      <RootProperty Name="Background" />
-      <RootProperty Name="BorderBrush" />
-      <RootProperty Name="Foreground" />
-      <RootProperty Name="Command" />
-    </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsControl">
       <RootProperty Name="ItemsSource" />
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
+    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
       <RootProperty Name="Template" />
     </RootType>

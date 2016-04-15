@@ -1,13 +1,16 @@
 ﻿
-using MDPA_MyWeather.Model;
-using MDPA_MyWeather.ViewModel.Base;
-using System;
-using System.Collections.Generic;
-using System.Windows.Input;
-using Windows.UI.Xaml.Media.Imaging;
 
 namespace MDPA_MyWeather.ViewModel
 {
+
+    using Model;
+    using Model.Services;
+    using Base;
+    using System;
+    using System.Collections.Generic;
+    using System.Windows.Input;
+    using Windows.Devices.Geolocation;
+
     class MainPageVM : ViewModelBase
     {
         private string currentDate;
@@ -53,29 +56,41 @@ namespace MDPA_MyWeather.ViewModel
             get { return this.getWeather; }
         }
 
-        private WeatherService weatherService;
+        private IWeatherService WeatherService;
+        private IGeolocationService GeolocationService;
 
         public MainPageVM()
         {
-            this.weatherService = new WeatherService();
+            this.WeatherService = new WeatherServiceImpl();
+            this.GeolocationService = new GeolocationServiceImpl();
 
+            initAttributes();
             setWeather();
-
-            this.CurrentDate = DateTime.Now.ToString("dddd dd MMMM yyyy");
-            this.CurrentLocation = "Barcelona";
-            this.getWeather = new DelegateCommand(
+            
+            
+            /*this.getWeather = new DelegateCommand(
                 async () =>
                 {
                     await weatherService.getCurrentWeather(41.390205, 2.154007);
-                });
+                });*/
 
         }
 
         private async void setWeather()
         {
-            this.CurrentWeather = await weatherService.getCurrentWeather(41.390205, 2.154007);
-            this.ForecastWeather = await weatherService.getForecastWeather(41.390205, 2.154007);
+            Geoposition location = await GeolocationService.GetCurrentGeoposition();
+            double latitude = location.Coordinate.Latitude;
+            double longitude = location.Coordinate.Longitude;
+            this.CurrentWeather = await WeatherService.GetCurrentWeather(latitude, longitude);
+            this.ForecastWeather = await WeatherService.GetForecastWeather(latitude, longitude);
         }
 
+        private void initAttributes()
+        {
+            this.CurrentDate = Utils.GetTodayFullDate();
+            this.CurrentLocation = "---";
+            this.CurrentWeather = new Weather();
+            this.CurrentWeather.CityName = "---";
+        }
     }
 }
