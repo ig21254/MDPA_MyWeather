@@ -22,13 +22,13 @@
     <AppXManifest Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\Core\AppxManifest.xml">
       <PackagePath>AppxManifest.xml</PackagePath>
       <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
-      <Modified>2016-04-15T18:22:55.934</Modified>
+      <Modified>2016-04-15T19:42:18.610</Modified>
     </AppXManifest>
   </ItemGroup>
   <ItemGroup>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\MDPA_MyWeather.exe">
       <PackagePath>entrypoint\MDPA_MyWeather.exe</PackagePath>
-      <Modified>2016-04-15T18:22:55.124</Modified>
+      <Modified>2016-04-15T19:42:18.233</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\.nuget\packages\Microsoft.ApplicationInsights\1.0.0\lib\portable-win81+wpa81\Microsoft.ApplicationInsights.dll">
       <PackagePath>Microsoft.ApplicationInsights.dll</PackagePath>
@@ -534,7 +534,7 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\MDPA_MyWeather.xr.xml">
       <PackagePath>MDPA_MyWeather.xr.xml</PackagePath>
-      <Modified>2016-04-15T18:15:58.006</Modified>
+      <Modified>2016-04-15T19:14:31.104</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Program Files %28x86%29\Windows Kits\10\UnionMetadata\Windows.winmd">
       <PackagePath>WinMetadata\Windows.winmd</PackagePath>
@@ -542,11 +542,11 @@
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\resources.pri">
       <PackagePath>resources.pri</PackagePath>
-      <Modified>2016-04-15T18:22:55.777</Modified>
+      <Modified>2016-04-15T19:14:32.016</Modified>
     </AppxPackagedFile>
     <AppxPackagedFile Include="C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\bin\x86\Debug\Core\MDPA_MyWeather.exe">
       <PackagePath>MDPA_MyWeather.exe</PackagePath>
-      <Modified>2016-04-15T18:22:55.928</Modified>
+      <Modified>2016-04-15T19:42:18.603</Modified>
     </AppxPackagedFile>
   </ItemGroup>
   <ItemGroup>

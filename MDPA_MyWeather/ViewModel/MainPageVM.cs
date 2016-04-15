@@ -50,10 +50,17 @@ namespace MDPA_MyWeather.ViewModel
             }
         }
 
-        private DelegateCommand getWeather;
-        public ICommand GetWeather
+        private string search;
+        public string Search
         {
-            get { return this.getWeather; }
+            get { return search; }
+            set { search = value; }
+        }
+
+        private DelegateCommand searchWeatherByCityName;
+        public ICommand SearchWeatherByCityName
+        {
+            get { return this.searchWeatherByCityName; }
         }
 
         private IWeatherService WeatherService;
@@ -67,12 +74,13 @@ namespace MDPA_MyWeather.ViewModel
             initAttributes();
             setWeather();
             
-            
-            /*this.getWeather = new DelegateCommand(
+            this.searchWeatherByCityName = new DelegateCommand(
                 async () =>
                 {
-                    await weatherService.getCurrentWeather(41.390205, 2.154007);
-                });*/
+                    Weather current = await WeatherService.GetCurrentWeather(Search);
+                    List<Weather> forecast = await WeatherService.GetForecastWeather(Search);
+                    UpdateWeather(current, forecast);
+                });
 
         }
 
@@ -81,8 +89,9 @@ namespace MDPA_MyWeather.ViewModel
             Geoposition location = await GeolocationService.GetCurrentGeoposition();
             double latitude = location.Coordinate.Latitude;
             double longitude = location.Coordinate.Longitude;
-            this.CurrentWeather = await WeatherService.GetCurrentWeather(latitude, longitude);
-            this.ForecastWeather = await WeatherService.GetForecastWeather(latitude, longitude);
+            Weather current = await WeatherService.GetCurrentWeather(latitude, longitude);
+            List<Weather> forecast = await WeatherService.GetForecastWeather(latitude, longitude);
+            UpdateWeather(current, forecast);
         }
 
         private void initAttributes()
@@ -91,6 +100,19 @@ namespace MDPA_MyWeather.ViewModel
             this.CurrentLocation = "---";
             this.CurrentWeather = new Weather();
             this.CurrentWeather.CityName = "---";
+        }
+
+        private async void UpdateWeather(Weather current, List<Weather> forecast)
+        {
+            if (current != null && forecast != null)
+            {
+                CurrentWeather = current;
+                ForecastWeather = forecast;
+            }
+            else
+            {
+
+            }
         }
     }
 }

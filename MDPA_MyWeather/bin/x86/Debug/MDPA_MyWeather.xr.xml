@@ -13,6 +13,8 @@
     <RootPropertyPathName Name="Icon" />
     <RootPropertyPathName Name="DateText" />
     <RootPropertyPathName Name="CurrentWeather" />
+    <RootPropertyPathName Name="SearchWeatherByCityName" />
+    <RootPropertyPathName Name="Search" />
     <RootPropertyPathName Name="CityName" />
     <RootPropertyPathName Name="CurrentDate" />
   </Roots.PropertyPathNames>
@@ -62,6 +64,8 @@
       <RootMethod Name="SetBelow" />
       <RootMethod Name="GetAlignLeftWith" />
       <RootMethod Name="SetAlignLeftWith" />
+      <RootMethod Name="GetAlignRightWith" />
+      <RootMethod Name="SetAlignRightWith" />
       <RootMethod Name="GetAlignVerticalCenterWith" />
       <RootMethod Name="SetAlignVerticalCenterWith" />
       <RootMethod Name="GetAlignTopWith" />
@@ -103,7 +107,10 @@
       <RootProperty Name="ItemsPanel" />
       <RootProperty Name="ItemTemplate" />
     </RootType>
-    <RootType FullName="Windows.UI.Xaml.Data.Binding" />
+    <RootType FullName="Windows.UI.Xaml.Data.Binding">
+      <RootProperty Name="Path" />
+      <RootProperty Name="Mode" />
+    </RootType>
     <RootType FullName="Windows.UI.Xaml.Controls.ItemsPanelTemplate">
       <RootProperty Name="Template" />
     </RootType>
@@ -112,6 +119,17 @@
     </RootType>
     <RootType FullName="Windows.UI.Xaml.Documents.Run">
       <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.TextBox">
+      <RootProperty Name="Width" />
+      <RootProperty Name="Text" />
+    </RootType>
+    <RootType FullName="Windows.UI.Xaml.Controls.Button">
+      <RootProperty Name="Margin" />
+      <RootProperty Name="Content" />
+      <RootProperty Name="Background" />
+      <RootProperty Name="Foreground" />
+      <RootProperty Name="Command" />
     </RootType>
     <RootType FullName="MDPA_MyWeather.MainPage" />
   </Roots.RootTypes>

@@ -224,7 +224,8 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 userType.AddMemberName("CurrentLocation");
                 userType.AddMemberName("CurrentWeather");
                 userType.AddMemberName("ForecastWeather");
-                userType.AddMemberName("GetWeather");
+                userType.AddMemberName("Search");
+                userType.AddMemberName("SearchWeatherByCityName");
                 userType.SetIsLocalType();
                 xamlType = userType;
                 break;
@@ -478,10 +479,20 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
             var that = (global::MDPA_MyWeather.Model.Weather)instance;
             that.DateText = (global::System.String)Value;
         }
-        private object get_17_MainPageVM_GetWeather(object instance)
+        private object get_17_MainPageVM_Search(object instance)
         {
             var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
-            return that.GetWeather;
+            return that.Search;
+        }
+        private void set_17_MainPageVM_Search(object instance, object Value)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            that.Search = (global::System.String)Value;
+        }
+        private object get_18_MainPageVM_SearchWeatherByCityName(object instance)
+        {
+            var that = (global::MDPA_MyWeather.ViewModel.MainPageVM)instance;
+            return that.SearchWeatherByCityName;
         }
 
         private global::Windows.UI.Xaml.Markup.IXamlMember CreateXamlMember(string longMemberName)
@@ -593,10 +604,16 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 xamlMember.Getter = get_16_Weather_DateText;
                 xamlMember.Setter = set_16_Weather_DateText;
                 break;
-            case "MDPA_MyWeather.ViewModel.MainPageVM.GetWeather":
+            case "MDPA_MyWeather.ViewModel.MainPageVM.Search":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
-                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "GetWeather", "System.Windows.Input.ICommand");
-                xamlMember.Getter = get_17_MainPageVM_GetWeather;
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Search", "String");
+                xamlMember.Getter = get_17_MainPageVM_Search;
+                xamlMember.Setter = set_17_MainPageVM_Search;
+                break;
+            case "MDPA_MyWeather.ViewModel.MainPageVM.SearchWeatherByCityName":
+                userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.ViewModel.MainPageVM");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "SearchWeatherByCityName", "System.Windows.Input.ICommand");
+                xamlMember.Getter = get_18_MainPageVM_SearchWeatherByCityName;
                 xamlMember.SetIsReadOnly();
                 break;
             }

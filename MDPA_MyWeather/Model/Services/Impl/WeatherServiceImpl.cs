@@ -24,24 +24,35 @@ namespace MDPA_MyWeather.Model
             client = new HttpClient();
         }
 
-        public async Task<Weather> GetCurrentWeather(double latitude, double longitude)
+        private async Task<string> SendHttpRequest(String uri)
         {
-            Weather current = new Weather();
+            try
+            {
+                Uri myUri = new Uri(uri);
+                HttpResponseMessage message;
+                message = await client.GetAsync(myUri);
+                if (message.StatusCode != HttpStatusCode.Ok)
+                {
+                    return null;
+                }
 
-            String uri = URL_BASE + CURRENT_WEATHER + "lat=" + latitude + "&lon=" + longitude + "&" + API_KEY + "&units=metric";
-            Uri myUri = new Uri(uri);
-            HttpResponseMessage message = await client.GetAsync(myUri);
-
-            //System.Diagnostics.Debug.WriteLine(message);
-
-            if (message.StatusCode != HttpStatusCode.Ok)
+                return await message.Content.ReadAsStringAsync();
+            }
+            catch (Exception e)
             {
                 return null;
             }
+        }
 
-            string content = await message.Content.ReadAsStringAsync();
-
+        private Weather ParseCurrentWeatherResponse(string content)
+        {
+            Weather current = new Weather();
             var root = JsonValue.Parse(content).GetObject();
+
+            if (!root.GetNamedValue("cod").Stringify().Equals("200"))
+            {
+                return null;
+            }
 
             current.CityName = root.GetNamedValue("name").GetString();
 
@@ -70,22 +81,32 @@ namespace MDPA_MyWeather.Model
             return current;
         }
 
-        public async Task<List<Weather>> GetForecastWeather(double latitude, double longitude)
+        public async Task<Weather> GetCurrentWeather(double latitude, double longitude)
+        {
+            String uri = URL_BASE + CURRENT_WEATHER + "lat=" + latitude + "&lon=" + longitude + "&" + API_KEY + "&units=metric";
+            string content = await SendHttpRequest(uri);
+            if (content == null) return null;
+            return ParseCurrentWeatherResponse(content);
+        }
+
+        public async Task<Weather> GetCurrentWeather(string cityName)
+        {
+            String uri = URL_BASE + CURRENT_WEATHER + "q=" + cityName + "&" + API_KEY + "&units=metric";
+            string content = await SendHttpRequest(uri);
+            if (content == null) return null;
+            return ParseCurrentWeatherResponse(content);
+        }
+
+        private List<Weather> parseForecastWeatherResponse(string content)
         {
             List<Weather> forecast = new List<Weather>();
 
-            String uri = URL_BASE + FORECAST + "lat=" + latitude + "&lon=" + longitude + "&cnt=7" + "&" + API_KEY + "&units=metric";
-            Uri myUri = new Uri(uri);
-            HttpResponseMessage message = await client.GetAsync(myUri);
+            var root = JsonValue.Parse(content).GetObject();
 
-            if (message.StatusCode != HttpStatusCode.Ok)
+            if (!root.GetNamedValue("cod").Stringify().Equals("200"))
             {
                 return null;
             }
-
-            string content = await message.Content.ReadAsStringAsync();
-
-            var root = JsonValue.Parse(content).GetObject();
 
             var cityName = root.GetNamedObject("city").GetNamedString("name");
 
@@ -118,11 +139,26 @@ namespace MDPA_MyWeather.Model
                 weather.Cloudiness = (int)day.GetObject().GetNamedNumber("clouds");
 
                 weather.DateText = Utils.FormatFullDateFromTicks(weather.Date);
-                
+
                 forecast.Add(weather);
             }
-
             return forecast;
+        }
+
+        public async Task<List<Weather>> GetForecastWeather(double latitude, double longitude)
+        {
+            String uri = URL_BASE + FORECAST + "lat=" + latitude + "&lon=" + longitude + "&cnt=7" + "&" + API_KEY + "&units=metric";
+            string content = await SendHttpRequest(uri);
+            if (content == null) return null;
+            return parseForecastWeatherResponse(content);
+        }
+
+        public async Task<List<Weather>> GetForecastWeather(string cityNameQuery)
+        {
+            String uri = URL_BASE + FORECAST + "q=" + cityNameQuery + "&cnt=7" + "&" + API_KEY + "&units=metric";
+            string content = await SendHttpRequest(uri);
+            if (content == null) return null;
+            return parseForecastWeatherResponse(content);
         }
 
         public string convertWeatherId(int id)
