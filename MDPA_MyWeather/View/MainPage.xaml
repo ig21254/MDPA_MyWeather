@@ -14,52 +14,20 @@
 
     <Grid Background="#E0E0E0">
 
-        <!--VisualStateManager.VisualStateGroups>
+        <VisualStateManager.VisualStateGroups>
             <VisualStateGroup x:Name="AdaptativeGroup">
                 <VisualState x:Name="GreaterThan900">
                     <VisualState.Setters>
-                        <Setter Target="Information.(RelativePanel.Above)" Value=""/>
-                        <Setter Target="Information.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
-                        <Setter Target="Information.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
+                        <Setter Target="ForecastPanel.Orientation" Value="Horizontal"/>
+                        <!--Setter Target="ForecastCard.(Margin)" Value="10,10,10,10"/-->
 
-                        <Setter Target="TodayWeatherPanel.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
-                        <Setter Target="TodayWeatherPanel.(RelativePanel.RightOf)" Value="Information"/>
-                        <Setter Target="TodayWeatherPanel.(RelativePanel.LeftOf)" Value="BtnLogin"/>
-
-                        <Setter Target="Header.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
-                        <Setter Target="Header.(RelativePanel.AlignHorizontalCenterWithPanel)" Value="True"/>
-                        <Setter Target="Header.(RelativePanel.Above)" Value="TodayWeatherPanel"/>
-
-                        <Setter Target="YourData.(RelativePanel.AlignLeftWithPanel)" Value="True"/>
-                        <Setter Target="YourData.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
-
-                        <Setter Target="Email.(RelativePanel.Below)" Value=""/>
-                        <Setter Target="Email.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
-                        <Setter Target="Email.(RelativePanel.RightOf)" Value="YourData"/>
-
-                        <Setter Target="Password.(RelativePanel.AlignLeftWithPanel)" Value="False"/>
-                        <Setter Target="Password.(RelativePanel.RightOf)" Value="YourData"/>
-
-                        <Setter Target="BtnLogin.(RelativePanel.AlignRightWithPanel)" Value="True"/>
-                        <Setter Target="BtnLogin.(RelativePanel.Below)" Value=""/>
-                        <Setter Target="BtnLogin.(RelativePanel.AlignVerticalCenterWithPanel)" Value="True"/>
-
-                        <Setter Target="YourData.Margin" Value="0"/>
-                        <Setter Target="Information.Margin" Value="0,0,24,0"/>
-                        <Setter Target="Header.Margin" Value="0,0,0,48"/>
-                        <Setter Target="Email.Margin" Value="24,0,0,0"/>
-                        <Setter Target="Password.Margin" Value="24,0,0,0"/>
-                        <Setter Target="BtnLogin.Margin" Value="24,0,0,0"/>
-                        <Setter Target="YourData.Width" Value="150"/>
-                        <Setter Target="YourData.FontSize" Value="24"/>
-                        <Setter Target="MasterPanel.HorizontalAlignment" Value="Center"/>
                     </VisualState.Setters>
                     <VisualState.StateTriggers>
                         <AdaptiveTrigger MinWindowWidth="900"/>
                     </VisualState.StateTriggers>
                 </VisualState>
             </VisualStateGroup>
-        </-->
+        </VisualStateManager.VisualStateGroups>
 
         <RelativePanel x:Name="MasterPanel" Padding="24,24,24,24">
             <!-- Header -->
@@ -87,7 +55,7 @@
                     <RelativePanel x:Name="TodayWeatherPanel" 
                                RelativePanel.Below="Information"
                                RelativePanel.AlignLeftWith="Logo"
-                               HorizontalAlignment="Stretch"
+                               HorizontalAlignment="Left"
                                Background="#B4C5CC"
                                Padding="10">
                         <TextBlock x:Name="TodayWeatherTitle" Text="Current Weather" FontSize="25" Margin="0,0,0,10"/>
@@ -146,12 +114,12 @@
                     <ItemsControl ItemsSource="{Binding ForecastWeather}" Grid.Column="0">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
-                                <StackPanel Orientation="Vertical"/>
+                                <StackPanel x:Name="ForecastPanel" Orientation="Vertical"/>
                             </ItemsPanelTemplate>
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <RelativePanel  HorizontalAlignment="Stretch" Background="#B4C5CC"
+                                <RelativePanel x:Name="ForecastCard" HorizontalAlignment="Left" Background="#B4C5CC"
                                         Padding="10,10,20,10" Margin="0,10">
                                     <TextBlock x:Name="TodayWeatherTitle" Text="{Binding DateText}" FontSize="25" Margin="0,0,0,10"/>
                                     <Image x:Name="WeatherIcon" Width="50" Height="50" Source="{Binding Icon}" 

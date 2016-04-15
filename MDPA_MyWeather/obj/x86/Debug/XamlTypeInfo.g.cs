@@ -376,7 +376,7 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
         private void set_6_Weather_Temp(object instance, object Value)
         {
             var that = (global::MDPA_MyWeather.Model.Weather)instance;
-            that.Temp = (global::System.Double)Value;
+            that.Temp = (global::System.Int32)Value;
         }
         private object get_7_Weather_TempMin(object instance)
         {
@@ -386,7 +386,7 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
         private void set_7_Weather_TempMin(object instance, object Value)
         {
             var that = (global::MDPA_MyWeather.Model.Weather)instance;
-            that.TempMin = (global::System.Double)Value;
+            that.TempMin = (global::System.Int32)Value;
         }
         private object get_8_Weather_TempMax(object instance)
         {
@@ -396,7 +396,7 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
         private void set_8_Weather_TempMax(object instance, object Value)
         {
             var that = (global::MDPA_MyWeather.Model.Weather)instance;
-            that.TempMax = (global::System.Double)Value;
+            that.TempMax = (global::System.Int32)Value;
         }
         private object get_9_Weather_Pressure(object instance)
         {
@@ -529,19 +529,19 @@ namespace MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo
                 break;
             case "MDPA_MyWeather.Model.Weather.Temp":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
-                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Temp", "Double");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "Temp", "Int32");
                 xamlMember.Getter = get_6_Weather_Temp;
                 xamlMember.Setter = set_6_Weather_Temp;
                 break;
             case "MDPA_MyWeather.Model.Weather.TempMin":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
-                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMin", "Double");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMin", "Int32");
                 xamlMember.Getter = get_7_Weather_TempMin;
                 xamlMember.Setter = set_7_Weather_TempMin;
                 break;
             case "MDPA_MyWeather.Model.Weather.TempMax":
                 userType = (global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlUserType)GetXamlTypeByName("MDPA_MyWeather.Model.Weather");
-                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMax", "Double");
+                xamlMember = new global::MDPA_MyWeather.MDPA_MyWeather_XamlTypeInfo.XamlMember(this, "TempMax", "Int32");
                 xamlMember.Getter = get_8_Weather_TempMax;
                 xamlMember.Setter = set_8_Weather_TempMax;
                 break;

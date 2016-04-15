@@ -52,11 +52,11 @@ namespace MDPA_MyWeather.Model
             current.WeatherDescription = weather.GetNamedString("description");
 
             var main = root.GetNamedValue("main").GetObject();
-            current.Temp = main.GetNamedNumber("temp");
+            current.Temp = Convert.ToInt32(main.GetNamedNumber("temp"));
             current.Pressure = (int)main.GetNamedNumber("pressure");
             current.Humidity = (int)main.GetNamedNumber("humidity");
-            current.TempMin = main.GetNamedNumber("temp_min");
-            current.TempMax = main.GetNamedNumber("temp_max");
+            current.TempMin = Convert.ToInt32(main.GetNamedNumber("temp_min"));
+            current.TempMax = Convert.ToInt32(main.GetNamedNumber("temp_max"));
 
             var wind = root.GetNamedValue("wind").GetObject();
             current.WindSpeed = wind.GetNamedNumber("speed");
@@ -98,9 +98,9 @@ namespace MDPA_MyWeather.Model
                 weather.Date = (long)day.GetObject().GetNamedNumber("dt");
 
                 var temp = day.GetObject().GetNamedObject("temp");
-                weather.Temp = temp.GetNamedNumber("day");
-                weather.TempMax = temp.GetNamedNumber("max");
-                weather.TempMin = temp.GetNamedNumber("min");
+                weather.Temp = Convert.ToInt32(temp.GetNamedNumber("day"));
+                weather.TempMax = Convert.ToInt32(temp.GetNamedNumber("max"));
+                weather.TempMin = Convert.ToInt32(temp.GetNamedNumber("min"));
 
                 weather.Pressure = (int)day.GetObject().GetNamedNumber("pressure");
                 weather.Humidity = (int)day.GetObject().GetNamedNumber("humidity");

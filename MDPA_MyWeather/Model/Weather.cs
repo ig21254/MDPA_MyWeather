@@ -5,9 +5,9 @@ namespace MDPA_MyWeather.Model
     {
         private int weatherId;
         private string weatherDescription;
-        private double temp;
-        private double tempMin;
-        private double tempMax;
+        private int temp;
+        private int tempMin;
+        private int tempMax;
         private int pressure;
         private int humidity;
         private double windSpeed;
@@ -27,17 +27,17 @@ namespace MDPA_MyWeather.Model
             get { return weatherDescription; }
             set { weatherDescription = value; }
         }
-        public double Temp
+        public int Temp
         {
             get { return temp; }
             set { temp = value; }
         }
-        public double TempMin
+        public int TempMin
         {
             get { return tempMin; }
             set { tempMin = value; }
         }
-        public double TempMax
+        public int TempMax
         {
             get { return tempMax; }
             set { tempMax = value; }
