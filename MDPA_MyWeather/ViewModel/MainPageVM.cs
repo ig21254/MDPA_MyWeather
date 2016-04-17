@@ -17,7 +17,11 @@ namespace MDPA_MyWeather.ViewModel
         public string CurrentDate
         {
             get { return currentDate; }
-            set { currentDate = value; }
+            set
+            {
+                currentDate = value;
+                RaisePropertyChanged("CurrentDate");
+            }
 
         }
 
@@ -25,7 +29,11 @@ namespace MDPA_MyWeather.ViewModel
         public string CurrentLocation
         {
             get { return currentLocation; }
-            set { currentLocation = value; }
+            set
+            {
+                currentLocation = value;
+                RaisePropertyChanged("CurrentLocation");
+            }
         }
 
         private Weather currentWeather;
@@ -54,7 +62,12 @@ namespace MDPA_MyWeather.ViewModel
         public string Search
         {
             get { return search; }
-            set { search = value; }
+            set
+            {
+                search = value;
+                RaisePropertyChanged("Search");
+            }
+                
         }
 
         private DelegateCommand searchWeatherByCityName;
@@ -108,11 +121,14 @@ namespace MDPA_MyWeather.ViewModel
             {
                 CurrentWeather = current;
                 ForecastWeather = forecast;
+                Search = "";
             }
             else
             {
-
+                SimpleTextToastManager.Instance.ShowToast("Error", "Couldn't find the location you were looking for.");
             }
         }
+
     }
+
 }

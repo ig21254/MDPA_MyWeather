@@ -99,6 +99,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Model\Services\SimpleTextToastManager.cs" />
     <Compile Include="Model\Services\Impl\GeolocationServiceImpl.cs" />
     <Compile Include="Model\Services\IGeolocationService.cs" />
     <Compile Include="Model\Services\IWeatherService.cs" />
