@@ -1,4 +1,3 @@
-C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\MDPA_MyWeather.csprojResolveAssemblyReference.cache
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\App.g.i.cs
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\App.g.cs
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\View\MainPage.g.i.cs
@@ -194,3 +193,4 @@ C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeat
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\qualifiers.txt.intermediate
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\MultipleQualifiersPerDimensionFound.txt
 C:\Users\Eduard\Documents\Visual Studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\ProjectArchitectures.txt
+C:\Users\Eduard\documents\visual studio 2015\Projects\MDPA_MyWeather\MDPA_MyWeather\obj\x86\Debug\MDPA_MyWeather.csprojResolveAssemblyReference.cache

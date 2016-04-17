@@ -71,8 +71,8 @@ namespace MDPA_MyWeather.ViewModel
             this.WeatherService = new WeatherServiceImpl();
             this.GeolocationService = new GeolocationServiceImpl();
 
-            initAttributes();
-            setWeather();
+            InitAttributes();
+            SetWeather();
             
             this.searchWeatherByCityName = new DelegateCommand(
                 async () =>
@@ -84,7 +84,7 @@ namespace MDPA_MyWeather.ViewModel
 
         }
 
-        private async void setWeather()
+        private async void SetWeather()
         {
             Geoposition location = await GeolocationService.GetCurrentGeoposition();
             double latitude = location.Coordinate.Latitude;
@@ -94,7 +94,7 @@ namespace MDPA_MyWeather.ViewModel
             UpdateWeather(current, forecast);
         }
 
-        private void initAttributes()
+        private void InitAttributes()
         {
             this.CurrentDate = Utils.GetTodayFullDate();
             this.CurrentLocation = "---";
@@ -102,7 +102,7 @@ namespace MDPA_MyWeather.ViewModel
             this.CurrentWeather.CityName = "---";
         }
 
-        private async void UpdateWeather(Weather current, List<Weather> forecast)
+        private void UpdateWeather(Weather current, List<Weather> forecast)
         {
             if (current != null && forecast != null)
             {

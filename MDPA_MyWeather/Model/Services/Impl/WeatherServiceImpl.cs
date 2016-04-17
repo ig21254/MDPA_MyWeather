@@ -103,7 +103,10 @@ namespace MDPA_MyWeather.Model
 
             var root = JsonValue.Parse(content).GetObject();
 
-            if (!root.GetNamedValue("cod").Stringify().Equals("200"))
+            var test1 = root.GetNamedValue("cod");
+            var test2 = test1.GetString();//.Stringify();
+            var test3 = test2.Equals("200");
+            if (!root.GetNamedValue("cod").GetString().Equals("200"))
             {
                 return null;
             }
